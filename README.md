@@ -1,7 +1,6 @@
 # ParkControl — Sistema de Controle de Estacionamento
 
-Projeto desenvolvido para a disciplina de Verificação e Validação de
-Sistemas. Sistema em Java que controla entrada/saída de veículos,
+Sistema em Java que controla entrada/saída de veículos,
 calcula valores cobrados por tempo de permanência, gerencia disponibilidade
 de vagas por tipo (comum, PCD, idoso, mensalista) e aplica desconto para
 mensalistas. Operado via linha de comando (CLI).
@@ -10,30 +9,8 @@ O plano de teste completo está em [`docs/plano-de-teste.md`](docs/plano-de-test
 
 ## Pré-requisitos
 
-- **Java 17 ou superior** (JDK, não apenas JRE)
+- **Java 17 ou superior (no máximo java 21)** (JDK, não apenas JRE)
 - **Maven 3.9 ou superior**
-
-### Instalando (se ainda não tiver)
-
-**Windows:** baixe o instalador do [Adoptium Temurin](https://adoptium.net/) (JDK 17+)
-e do [Maven](https://maven.apache.org/download.cgi), seguindo os instaladores.
-
-**Mac (com Homebrew):**
-```bash
-brew install openjdk@17 maven
-```
-
-**Linux (Ubuntu/Debian):**
-```bash
-sudo apt update
-sudo apt install openjdk-17-jdk maven
-```
-
-Verifique a instalação:
-```bash
-java -version
-mvn -version
-```
 
 ## Como rodar os testes
 
@@ -88,33 +65,3 @@ parkcontrol> saida ABC1D23
 Saida registrada. Placa=ABC1D23 valor cobrado=R$ 6.00
 parkcontrol> sair
 ```
-
-## Estrutura do projeto
-
-```
-parkcontrol/
-├── docs/
-│   └── plano-de-teste.md
-├── src/
-│   ├── main/java/br/edu/ifrs/parkcontrol/
-│   │   ├── model/           # Vaga, Veiculo, Ticket, TipoVaga
-│   │   ├── service/         # EstacionamentoService, CalculadoraDeValor, TarifaConfig
-│   │   ├── repository/      # Interfaces (VagaRepository, TicketRepository)
-│   │   │   └── impl/        # Implementacao em arquivo JSON
-│   │   ├── cli/             # ParkControlApp (CLI), Main (entry point)
-│   │   └── exception/       # Excecoes de dominio
-│   └── test/java/br/edu/ifrs/parkcontrol/
-│       ├── unit/            # Testes unitarios (JUnit + Mockito)
-│       ├── component/       # Testes de componente (repositorios, I/O real)
-│       └── system/          # Teste de sistema (fluxo completo via CLI)
-├── pom.xml
-└── README.md
-```
-
-## Observação sobre o ambiente de desenvolvimento
-
-Este projeto foi desenvolvido com auxílio do Claude (Anthropic). O ambiente
-de geração de código não teve acesso ao Maven Central durante o
-desenvolvimento, portanto os testes não foram executados automaticamente
-durante a criação — **é necessário rodar `mvn verify` localmente** para
-confirmar que tudo compila e passa, conforme instruções acima.
