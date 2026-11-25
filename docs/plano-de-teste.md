@@ -1,18 +1,5 @@
 # Plano de Teste — ParkControl
 
-**Disciplina:** Verificação e Validação de Sistemas
-**Projeto:** ParkControl — Sistema de Controle de Estacionamento
-**Autora:** Vitória Germann
-
-## 1. Introdução
-
-Este documento descreve o planejamento das atividades de Verificação e
-Validação (V&V) aplicadas ao ParkControl, um sistema em Java que controla a
-entrada e saída de veículos em um estacionamento, calcula valores cobrados
-por tempo de permanência, gerencia a disponibilidade de vagas por tipo
-(comum, PCD, idoso e mensalista) e aplica desconto para clientes
-mensalistas.
-
 ## 2. Escopo do teste
 
 ### 2.1 O que será testado
@@ -105,7 +92,7 @@ simular um usuário real no teste de sistema sem depender de
 
 ## 6. Cronograma das atividades
 
-| Semana | Atividade |
+| Atividade |
 |---|---|
 | 1 | Definição do projeto e entrega da Etapa 1 (PDF) |
 | 2 | Estruturação do projeto Maven, implementação do domínio (`model`, `service`) |
@@ -128,16 +115,3 @@ simular um usuário real no teste de sistema sem depender de
 | Persistência | Arquivos JSON (biblioteca Jackson) |
 | Controle de versão | Git / GitHub |
 
-### Como reproduzir os resultados
-
-```bash
-mvn test      # roda testes unitarios e de componente
-mvn verify    # roda todos os testes + PMD + gera relatorio de cobertura
-```
-
-Relatórios gerados:
-- Cobertura: `target/site/jacoco/index.html`
-- Análise estática: `target/pmd.xml`
-
-Instruções detalhadas de instalação e execução estão no `README.md` na raiz
-do repositório.
